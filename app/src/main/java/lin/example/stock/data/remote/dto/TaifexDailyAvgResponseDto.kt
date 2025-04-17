@@ -11,8 +11,8 @@ import com.google.gson.annotations.SerializedName
  * @property monthlyAvgPrice 月平均價（字串）
  */
 data class TaifexDailyAvgResponseDto(
-    @SerializedName("Code")            val code: String,
-    @SerializedName("Name")            val name: String,
-    @SerializedName("ClosingPrice")    val closingPrice: String,
+    @SerializedName("Code") val code: String,
+    @SerializedName("Name") val name: String,
+    @SerializedName("ClosingPrice") val closingPrice: String,
     @SerializedName("MonthlyAveragePrice") val monthlyAvgPrice: String
 )

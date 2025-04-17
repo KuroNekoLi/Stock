@@ -17,13 +17,13 @@ import com.google.gson.annotations.SerializedName
  * @property transaction 成交筆數（字串）
  */
 data class TaifexDailyTradingResponseDto(
-    @SerializedName("Code")         val code: String,
-    @SerializedName("Name")         val name: String,
-    @SerializedName("TradeVolume")  val tradeVolume: String,
-    @SerializedName("TradeValue")   val tradeValue: String,
-    @SerializedName("OpeningPrice")    val openPrice: String,
-    @SerializedName("HighestPrice")    val highPrice: String,
-    @SerializedName("LowestPrice")     val lowPrice: String,
+    @SerializedName("Code") val code: String,
+    @SerializedName("Name") val name: String,
+    @SerializedName("TradeVolume") val tradeVolume: String,
+    @SerializedName("TradeValue") val tradeValue: String,
+    @SerializedName("OpeningPrice") val openPrice: String,
+    @SerializedName("HighestPrice") val highPrice: String,
+    @SerializedName("LowestPrice") val lowPrice: String,
     @SerializedName("ClosingPrice") val closingPrice: String,
     @SerializedName("Change") val change: String,
     @SerializedName("Transaction") val transaction: String

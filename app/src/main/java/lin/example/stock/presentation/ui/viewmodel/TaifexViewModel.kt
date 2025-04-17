@@ -12,7 +12,7 @@ import lin.example.stock.domain.usecase.FetchAllStockInfoUseCase
 
 class TaifexViewModel(
     private val useCase: FetchAllStockInfoUseCase
-): ViewModel() {
+) : ViewModel() {
     private val _uiState = MutableStateFlow<Resource<List<StockUiModel>>>(Resource.Loading)
     val uiState: StateFlow<Resource<List<StockUiModel>>> = _uiState.asStateFlow()
 

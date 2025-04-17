@@ -25,70 +25,48 @@ class TaifexRepositoryImpl(
     private val apiService: TaifexApiService,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : TaifexRepository {
-
-    /**
-     * 取得上市個股本益比、殖利率及股價淨值比清單
-     *
-     * @return List<TaifexData> 上市個股財務指標模型清單
-     * @throws HttpException 當 HTTP 回應非 2xx
-     * @throws IOException   當網路連線失敗
-     */
     override suspend fun fetchStockFinancialIndicators(): List<TaifexData> =
         withContext(ioDispatcher) {
             apiService.fetchStockFinancialIndicators()
                 .map { dto: TaifexResponseDto ->
                     TaifexData(
-                        code           = dto.code,
-                        name           = dto.name,
-                        peRatio        = dto.peRatio.toDoubleOrNull(),
-                        dividendYield  = dto.dividendYield.toDoubleOrNull(),
-                        pbRatio        = dto.pbRatio.toDoubleOrNull()
+                        code = dto.code,
+                        name = dto.name,
+                        peRatio = dto.peRatio.toDoubleOrNull(),
+                        dividendYield = dto.dividendYield.toDoubleOrNull(),
+                        pbRatio = dto.pbRatio.toDoubleOrNull()
                     )
                 }
         }
 
-    /**
-     * 取得上市個股日收盤價及月平均價清單
-     *
-     * @return List<DailyAvgData> 日收盤價及月平均價模型清單
-     * @throws HttpException 當 HTTP 回應非 2xx
-     * @throws IOException   當網路連線失敗
-     */
     override suspend fun fetchDailyClosingAndMonthlyAverage(): List<DailyAvgData> =
         withContext(ioDispatcher) {
             apiService.fetchDailyClosingAndMonthlyAverage()
                 .map { dto: TaifexDailyAvgResponseDto ->
                     DailyAvgData(
-                        code            = dto.code,
-                        name            = dto.name,
-                        closingPrice    = dto.closingPrice.toDoubleOrNull(),
+                        code = dto.code,
+                        name = dto.name,
+                        closingPrice = dto.closingPrice.toDoubleOrNull(),
                         monthlyAvgPrice = dto.monthlyAvgPrice.toDoubleOrNull()
                     )
                 }
         }
 
-    /**
-     * 取得上市個股日成交資訊清單
-     *
-     * @return List<DailyTradingData> 日成交資訊模型清單
-     * @throws HttpException 當 HTTP 回應非 2xx
-     * @throws IOException   當網路連線失敗
-     */
     override suspend fun fetchDailyStockTradingInfo(): List<DailyTradingData> =
         withContext(ioDispatcher) {
             apiService.fetchDailyStockTradingInfo()
                 .map { dto: TaifexDailyTradingResponseDto ->
                     DailyTradingData(
-                        code         = dto.code,
-                        name         = dto.name,
-                        tradeVolume  = dto.tradeVolume.toDoubleOrNull(),
-                        tradeValue   = dto.tradeValue.toDoubleOrNull(),
-                        openPrice    = dto.openPrice.toDoubleOrNull(),
-                        highPrice    = dto.highPrice.toDoubleOrNull(),
-                        lowPrice     = dto.lowPrice.toDoubleOrNull(),
+                        code = dto.code,
+                        name = dto.name,
+                        tradeVolume = dto.tradeVolume.toDoubleOrNull(),
+                        tradeValue = dto.tradeValue.toDoubleOrNull(),
+                        openPrice = dto.openPrice.toDoubleOrNull(),
+                        highPrice = dto.highPrice.toDoubleOrNull(),
+                        lowPrice = dto.lowPrice.toDoubleOrNull(),
                         closingPrice = dto.closingPrice.toDoubleOrNull(),
-                        change       = dto.change.toDoubleOrNull(),
-                        transaction  = dto.transaction.toIntOrNull()
+                        change = dto.change.toDoubleOrNull(),
+                        transaction = dto.transaction.toIntOrNull()
                     )
                 }
         }

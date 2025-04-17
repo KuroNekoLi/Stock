@@ -13,7 +13,6 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-// 透過 GsonBuilder.setLenient() 啟用寬鬆模式&#8203;:contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}
 val gson = GsonBuilder()
     .setLenient()
     .create()

@@ -25,8 +25,8 @@ class FetchAllStockInfoUseCase(
         withContext(ioDispatcher) {
             try {
                 // 1. 串接
-                val fin   = repository.fetchStockFinancialIndicators()
-                val avg   = repository.fetchDailyClosingAndMonthlyAverage().associateBy { it.code }
+                val fin = repository.fetchStockFinancialIndicators()
+                val avg = repository.fetchDailyClosingAndMonthlyAverage().associateBy { it.code }
                 val trade = repository.fetchDailyStockTradingInfo().associateBy { it.code }
 
                 // 2. 合併
@@ -34,20 +34,20 @@ class FetchAllStockInfoUseCase(
                     avg[f.code]?.let { a ->
                         trade[f.code]?.let { t ->
                             StockUiModel(
-                                code            = f.code,
-                                name            = f.name,
-                                openPrice       = t.openPrice ?: 0.0,
-                                highPrice       = t.highPrice ?: 0.0,
-                                lowPrice        = t.lowPrice ?: 0.0,
-                                closePrice      = t.closingPrice ?: 0.0,
+                                code = f.code,
+                                name = f.name,
+                                openPrice = t.openPrice ?: 0.0,
+                                highPrice = t.highPrice ?: 0.0,
+                                lowPrice = t.lowPrice ?: 0.0,
+                                closePrice = t.closingPrice ?: 0.0,
                                 monthlyAvgPrice = a.monthlyAvgPrice ?: 0.0,
-                                tradeVolume     = t.tradeVolume ?: 0.0,
-                                tradeValue      = t.tradeValue ?: 0.0,
-                                peRatio         = f.peRatio,
-                                dividendYield   = f.dividendYield,
-                                pbRatio         = f.pbRatio,
-                                change          = t.change,
-                                transaction     = t.transaction
+                                tradeVolume = t.tradeVolume ?: 0.0,
+                                tradeValue = t.tradeValue ?: 0.0,
+                                peRatio = f.peRatio,
+                                dividendYield = f.dividendYield,
+                                pbRatio = f.pbRatio,
+                                change = t.change,
+                                transaction = t.transaction
                             )
                         }
                     }

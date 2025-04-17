@@ -12,9 +12,9 @@ import com.google.gson.annotations.SerializedName
  * @property pbRatio 股價淨值比（原始字串）。
  */
 data class TaifexResponseDto(
-    @SerializedName("Code")          val code: String,
-    @SerializedName("Name")          val name: String,
-    @SerializedName("PEratio")       val peRatio: String,
+    @SerializedName("Code") val code: String,
+    @SerializedName("Name") val name: String,
+    @SerializedName("PEratio") val peRatio: String,
     @SerializedName("DividendYield") val dividendYield: String,
-    @SerializedName("PBratio")       val pbRatio: String
+    @SerializedName("PBratio") val pbRatio: String
 )

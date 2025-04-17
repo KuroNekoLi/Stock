@@ -27,10 +27,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         lifecycleScope.launch {
-            repository.fetchDailyClosingAndMonthlyAverage().also { Log.i("LinLi", "fetchDailyClosingAndMonthlyAverage = $it") }
-            repository.fetchDailyStockTradingInfo().also { Log.i("LinLi", "fetchDailyStockTradingInfo = $it") }
+            repository.fetchDailyClosingAndMonthlyAverage()
+                .also { Log.i("LinLi", "fetchDailyClosingAndMonthlyAverage = $it") }
+            repository.fetchDailyStockTradingInfo()
+                .also { Log.i("LinLi", "fetchDailyStockTradingInfo = $it") }
         }
-        viewModel.loadTaifexData()
+        viewModel.loadStocks()
         setContent {
             val uiState = viewModel.uiState.collectAsState()
             Log.i("LinLi", "uiState = ${uiState.value}")
