@@ -5,7 +5,7 @@ package lin.example.stock.domain.model
  *
  * @property code 股票代號
  * @property name 股票名稱
- * @property tradeVolume 成交量（Double?）
+ * @property tradeVolume 成交股數(Int?)
  * @property tradeValue 成交金額（Double?）
  * @property openPrice 開盤價（Double?）
  * @property highPrice 最高價（Double?）
@@ -17,7 +17,7 @@ package lin.example.stock.domain.model
 data class DailyTradingData(
     val code: String,
     val name: String,
-    val tradeVolume: Double?,
+    val tradeVolume: Int?,
     val tradeValue: Double?,
     val openPrice: Double?,
     val highPrice: Double?,

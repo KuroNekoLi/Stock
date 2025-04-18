@@ -41,7 +41,7 @@ class FetchAllStockInfoUseCase(
                                 lowPrice = t.lowPrice ?: 0.0,
                                 closePrice = t.closingPrice ?: 0.0,
                                 monthlyAvgPrice = a.monthlyAvgPrice ?: 0.0,
-                                tradeVolume = t.tradeVolume ?: 0.0,
+                                tradeVolume = t.tradeVolume ?: 0,
                                 tradeValue = t.tradeValue ?: 0.0,
                                 peRatio = f.peRatio,
                                 dividendYield = f.dividendYield,

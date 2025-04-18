@@ -59,7 +59,7 @@ class TaifexRepositoryImpl(
                     DailyTradingData(
                         code = dto.code,
                         name = dto.name,
-                        tradeVolume = dto.tradeVolume.toDoubleOrNull(),
+                        tradeVolume = dto.tradeVolume.toIntOrNull(),
                         tradeValue = dto.tradeValue.toDoubleOrNull(),
                         openPrice = dto.openPrice.toDoubleOrNull(),
                         highPrice = dto.highPrice.toDoubleOrNull(),

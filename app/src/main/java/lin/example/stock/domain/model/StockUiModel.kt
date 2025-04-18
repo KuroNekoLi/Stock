@@ -9,7 +9,7 @@ package lin.example.stock.domain.model
  * @property lowPrice 最低價
  * @property closePrice 收盤價
  * @property monthlyAvgPrice 月平均價
- * @property tradeVolume 成交量
+ * @property tradeVolume 成交股數
  * @property tradeValue 成交金額
  * @property peRatio 本益比（Double）
  * @property dividendYield 殖利率（Double）
@@ -25,7 +25,7 @@ data class StockUiModel(
     val lowPrice: Double,
     val closePrice: Double,
     val monthlyAvgPrice: Double,
-    val tradeVolume: Double,
+    val tradeVolume: Int,
     val tradeValue: Double,
     val peRatio: Double?,
     val dividendYield: Double?,
