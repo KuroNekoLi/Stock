@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -79,7 +80,9 @@ fun StockCard(
                     value = "%.2f".format(item.openPrice)
                 )
                 MetricItem(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .weight(1f)
+                        .testTag("closePrice_${if (closeColor == Color.Red) "up" else "down"}"),
                     label = stringResource(R.string.close_price),
                     value = "%.2f".format(item.closePrice),
                     valueColor = closeColor

@@ -35,7 +35,7 @@ fun SortBottomSheet(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text("排序方式", style = MaterialTheme.typography.titleMedium)
-        StockSortOption.values().forEach { option ->
+        StockSortOption.entries.forEach { option ->
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
